@@ -1,0 +1,28 @@
+body {
+    background-image: url(../images/registration.jpg);
+}
+
+.logOnForm {
+     margin-top:35px;
+     text-align:center;
+}
+
+.noLog {
+    text-align:center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.noLog p {
+    margin-bottom: 1px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.capReg {
+    caption-side:top;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    color: black;
+}

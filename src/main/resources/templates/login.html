@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.css" type="text/css">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body style="background-image: url(images/registration.jpg)">
+    <div id="logInForm" class="container">
+        <form class="form-signin" method="post" action="/login">
+            <h2 class="form-signin-heading" style="text-align: center;">Войти</h2>
+            <p>
+                <label for="username" class="sr-only" style="position: relative; left: 50%; transform: translate(-50%, 0); color:black;  font-size:22px; ">Логин</label>
+                <input type="text" id="username" name="username" class="form-control" style="text-align: center; color:black;" placeholder="Введите логин" required="" autofocus="">
+            </p>
+            <p>
+                <label for="password" class="sr-only" style="position: relative; left: 50%; transform: translate(-50%, 0); color:black; font-size:22px; ">Пароль</label>
+                <input type="password" id="password" name="password" class="form-control" style="text-align: center; color:black;" placeholder="Введите пароль" required="">
+            </p>
+            <input name="_csrf" type="hidden" value="c0ed5ba1-d0e1-46e9-976c-a484e195b169">
+            <button class="btn btn-lg btn-primary btn-block" style="position: relative; left: 50%; transform: translate(-50%, 0); " type="submit">Войти</button>
+            <a class="btn btn-lg btn-secondary btn-block" href="/registration" style="position: relative; left: 50%; transform: translate(-50%, 0); text-align: center; margin-top:5px; " value="Зарегистрироваться"> Зарегистрироваться </a>
+            <a class="btn btn-lg btn-secondary btn-block" href="/" style="position: relative; left: 50%; transform: translate(-50%, 0); text-align: center; margin-top:5px;" value="На главную"> На главную </a>
+        </form>
+
+    </div>
+</body>
+</html>

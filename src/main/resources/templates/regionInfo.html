@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="CSS/regionInfo.css" type="text/css">
+    <title>Information about your region</title>
+</head>
+<body>
+    <header th:insert="~{blocks/header :: header}"></header>
+    <div style="margin-top: 5px;">
+        <h1 style="text-align:center;"> Информация о вашем участке </h1>
+        <form th:action="@{/currentRegionInfoGet}" th:object = "${currentRegion}" metod="get">
+            <div class="userInfo">
+                <h4> Имя собственника: <output th:text="${userInfo.name}">  </output> </h4>
+                <h4> Фамилия: <output th:text="${userInfo.secondName}">  </output> </h4>
+                <h4> Номер участка: <output th:text="${userInfo.houseNumber}"> </output> </h4>
+                <h4> Дата рождения: <output th:text="${userInfo.dateOfBirth}"> </output> </h4>
+                <h4> Контактный телефон: <output th:text="${userInfo.telephone}" > </output> </h4>
+                <h4> Электронная почта: <output th:text="${userInfo.mail}"> </output> </h4>
+            </div>
+        </form>
+    </div>
+
+    <script src="bootstrap5/js/bootstrap.js"></script>
+</body>
+</html>

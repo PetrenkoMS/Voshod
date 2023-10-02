@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="CSS/registration.css" type="text/css">
+    <title>Регистрация</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <div id="registrationForm" class="container noLog">
+        <p>Зарегистрируйтесь, используя форму ниже </p>
+        <p> Имя, фамилия и дата рождения должны быть собственника участка!</p>
+        <p> Логин и пароль должны содержать больше 3-х символов, быть на английском языке и/или содержать цифры,
+            и не содержать специальные символы &lt; &gt; &frasl; &quot; &prime; , ; | \ <p>
+    </div>
+    <form action="#" th:action="@{/registration}" th:object="${region}" method="post">
+        <table border="0" cellspacing="10" cellpadding="2" width="100px" align="center" class="logOnForm">
+            <td colspan="4" style="color:black">
+                <h3> Регистрация </h3>
+            </td>
+            <tr>
+                <th colspan="2">
+                    Логин:
+                </th>
+                <td colspan="2">
+                    <input type="text" id="newLogin" name="newLogin" th:field="*{login}" pattern=".{3,}" title="Минимум 3 символа" placeholder="Введите новый логин" autofocus required>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    Пароль:
+                </th>
+                <td colspan="2">
+                    <input type="password" id="newPassword" name="newPassword" th:field="*{password}" pattern=".{3,}" title="Минимум 3 символа" placeholder="Введите пароль" required>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="1"> Имя: </th>
+                <td colspan="1">
+                    <input type="text" id="newName" name="newName" th:field="*{name}" pattern="^[A-Za-zА-Яа-яЁё\s]{2,}" title="Минимум 2 буквы без цифр и спец. символов" placeholder="Введите Ваше имя" required>
+                </td>
+                <th colspan="1"> Фамилия: </th>
+                <td colspan="1">
+                    <input type="text" id="newSecondName" name="newSecondName" th:field="*{secondName}" pattern="^[A-Za-zА-Яа-яЁё\s]{2,}" title="Минимум 2 буквы без цифр и спец. символов" placeholder="Введите Вашу фамилию" required>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="1"> Дата рождения: </th>
+                <td colspan="1">
+                    <input id="dateOfBirth" type="date" th:field="*{dateOfBirth}" placeholder="Дата рождения">
+                </td>
+                <th colspan="1"> Номер участка: </th>
+                <td colspan="1">
+                    <input type="number" id="houseNumber" th:field="*{houseNumber}" min="1" max="106" step="1" placeholder="Номер участка">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="1"> Серия: </th>
+                <td colspan="1">
+                    <input type="text" id="seriesPassport" name="seriesPassport" th:field="*{seriesPassport}" pattern="[0-9]{4}" title="4 цифры" placeholder="Введите серию паспорта" required>
+                </td>
+                <th colspan="1"> Номер: </th>
+                <td colspan="1">
+                    <input type="text" id="numberPassport" name="numberPassport" th:field="*{numberPassport}" pattern="[0-9]{6}" title="6 цифр" placeholder="Введите номер паспорта" required>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="1"> Телефон: </th>
+                <td colspan="1">
+                    <input type="text" id="telephone" name="telephone" th:field="*{telephone}" pattern="[0-9]{11}" placeholder="x-xxx-xxx-xx-xx" required>
+                </td>
+                <th colspan="1"> Почта: </th>
+                <td colspan="1">
+                    <input type="text" id="mail" name="mail" th:field="*{mail}" pattern="{'[a-z0-9]+@[a-z]+\.[a-z]{2,6}'}" title="Введите корректно почту (формат: login@email.domen)" placeholder="Формат login@email.domen" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">  </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <input type="submit" class="btn btn-outline-primary" style="background-color:white; color:blue;" value="Зарегистрироваться">
+                </td>
+            </tr>
+            </tr>
+            <tr>
+                <td colspan="4">  </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <a class="btn btn-outline-secondary" style="background-color:white; color:black;" href="/" value="На главную"> На главную </a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<div th:fragment="header">
+    <div  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm" style="background-color:black;">
+        <h5 class="my-0 mr-md-auto font-weight-normal text-white"><a href="/" style="color:#CE2029; text-decoration: none;" value="Восход"> Восход </a></h5>
+        <nav class="my-2 my-md-0 mr-md-3" >
+            <a class="p-2 text-white" style="text-decoration: none;" href="/" value="Главная">Главная</a>
+            <a id="currentEvent" class="p-2 text-white" style="text-decoration: none;" href="/event" value="Текущее событие"> Текущее событие </a>
+            <a id="currentUser" class="p-2 text-white" style="text-decoration: none;" href="/regionInfo" value="Информация об участке">Информация об участке</a>
+<!--            <a id="findAllButton" class="p-2 text-white" style="text-decoration: none;" href="/findSomeUsers" value="Поиск нескольких клиентов">Поиск нескольких клиентов</a>-->
+<!--            <a id="sortirovka" class="p-2 text-white" style="text-decoration: none;" href="/sortirovka" value="Сортировка">Сортировка</a>-->
+        </nav>
+
+        <div sec:authorize="isAnonymous()" style = "position: relative; left: 65%; transform: translate(-65%, 0);">
+            <a id="login" type="submit" class="btn btn-outline-primary" value="Войти" href="/login"> Войти </a>
+        </div>
+        <div  sec:authorize="isAnonymous()" style = "position: relative; left: 50%; transform: translate(-50%, 0);">
+            <a id="registration" type="submit" class="btn btn-outline-secondary" style="color:#EFCDB8;" value="Зарегистрироваться" href="/registration"> Зарегистрироваться </a>
+        </div>
+        <div sec:authorize="isAuthenticated()" style="position: relative; left: 65%; transform: translate(-65%, 0);">
+            <a type="submit" class="btn btn-outline-danger" value="Выйти" href="/logout"> Выйти </a>
+        </div>
+        <div sec:authorize="isAuthenticated()" sec:authentication="name" type="text" style="color:black; background-color: white; position: relative; left: 55%; transform: translate(-55%, 0);" > </div>
+
+    </div>
+</div>
