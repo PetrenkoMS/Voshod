@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="CSS/backgroundPond.css" type="text/css">
+    <title>Find User</title>
+</head>
+<body>
+    <header th:insert="~{blocks/header :: header}"></header>
+    <div class="container mainFindDiv">
+        <h2> Поиск участка </h2>
+        <p> Вы можете найти информацию об участке с помощью данного поисковика (поиск осуществляется под данным собственника)
+        *При поиске по фамилии и имени требуется написать фамилию и имя через пробел в данном порядке</p>
+        <form th:action="@{/findUser}" th:object="${paramToFind}" method="post">
+            <label for="selectParam"> Выберете параметр поиска</label>
+            <select th:field="*{selectParam}" id="selectParam" name="selectParam" tabindex="1" required>
+                <option selected value="nameAndSecondName">Имя и фамилия</option>
+                <option value="houseNumber">Номер участка</option>
+                <option value="telephone">Телефон</option>
+                <option value="mail">Почта</option>
+            </select>
+            <br>
+            <br>
+            <label for="findThisUser"> Введите значение </label>
+            <input type="text" id="findThisUser" name="findThisUser" th:field="*{fUser}" placeholder="Введите значение" th:pattern="*{pattern}" th:title="*{titlePattern}" required>
+            <br>
+            <input type="submit" id="findThisSome" value="Найти" class="list-group-item list-group-item-success btn btn-large btn-success findBtnStyle">
+        </form>
+        <br>
+        <br>
+        <br>
+        <form th:field="@{/findUser}" th:object="${findUser}" method="get">
+            <h1> Результаты: </h1>
+            <table border="5" cellspacing="0" cellpadding="2" width="100%" align="center" class="spisok">
+                <tr>
+                    <th> Имя </th>
+                    <th> Фамилия </th>
+                    <th> Номер участка </th>
+                    <th> Дата рождения </th>
+                    <th> Телефон </th>
+                    <th> Почта </th>
+                </tr>
+                <tr name="trValue" th:each="findUser : ${listForSwitch}">
+                    <td th:text="${findUser.name}"> </td>
+                    <td th:text="${findUser.secondName}"> </td>
+                    <td th:text="${findUser.houseNumber}"> </td>
+                    <td th:text="${findUser.dateOfBirth}"> </td>
+                    <td th:text="${findUser.telephone}"> </td>
+                    <td th:text="${findUser.mail}"> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

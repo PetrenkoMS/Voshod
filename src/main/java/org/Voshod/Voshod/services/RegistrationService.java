@@ -38,7 +38,7 @@ public class RegistrationService {
 
         String returnPage="registration";
         Optional<Region> employLogin = this.regionRepository.findByLogin(region.getLogin());
-        Optional<Region> employHouseNumber = this.regionRepository.findByHouseNumber(region.getHouseNumber());
+        List<Region> employHouseNumber = this.regionRepository.findByHouseNumber(region.getHouseNumber());
         Optional<Region> employSeriesAndNumber = this.regionRepository.findBySeriesPassportAndNumberPassport(region.getSeriesPassport(), region.getNumberPassport());
 
         if (employLogin.isEmpty()) {

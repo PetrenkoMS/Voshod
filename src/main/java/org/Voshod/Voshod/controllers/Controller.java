@@ -1,11 +1,9 @@
 package org.Voshod.Voshod.controllers;
 
 
+import org.Voshod.Voshod.entity.ParamToFind;
 import org.Voshod.Voshod.entity.Region;
-import org.Voshod.Voshod.services.CurrentRegionInfoService;
-import org.Voshod.Voshod.services.EventService;
-import org.Voshod.Voshod.services.RegistrationService;
-import org.Voshod.Voshod.services.UserService;
+import org.Voshod.Voshod.services.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +17,14 @@ public class Controller {
     private final UserService userService;
     private final CurrentRegionInfoService currentRegionInfoService;
     private final EventService eventService;
+    private final FindUserService findUserService;
 
-    public Controller(RegistrationService registrationService, UserService userService, CurrentRegionInfoService currentRegionInfoService, EventService eventService) {
+    public Controller(RegistrationService registrationService, UserService userService, CurrentRegionInfoService currentRegionInfoService, EventService eventService, FindUserService findUserService) {
         this.registrationService = registrationService;
         this.userService = userService;
         this.currentRegionInfoService = currentRegionInfoService;
         this.eventService = eventService;
+        this.findUserService = findUserService;
     }
 
     @GetMapping(value = "/")
@@ -58,6 +58,19 @@ public class Controller {
     public ModelAndView currentRegionInfoGet(Region userInfo, Model model) {
         currentRegionInfoService.currentRegionInfoGet(userInfo, model);
         return new ModelAndView("regionInfo");
+    }
+
+    @GetMapping(value = "/findUser")
+    public ModelAndView findUser(Model model) {
+        findUserService.findUserServiceGet(model);
+        return new ModelAndView("findUser");
+
+    }
+
+    @PostMapping(value = "/findUser")
+    public ModelAndView findUser(Region findUser, ParamToFind paramToFind, Model model) {
+        findUserService.findUserServicePost(findUser, paramToFind, model);
+        return new ModelAndView("findUser");
     }
 
 

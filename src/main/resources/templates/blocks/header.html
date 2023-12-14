@@ -5,20 +5,20 @@
             <a class="p-2 text-white" style="text-decoration: none;" href="/" value="Главная">Главная</a>
             <a id="currentEvent" class="p-2 text-white" style="text-decoration: none;" href="/event" value="Текущее событие"> Текущее событие </a>
             <a id="currentUser" class="p-2 text-white" style="text-decoration: none;" href="/regionInfo" value="Информация об участке">Информация об участке</a>
-<!--            <a id="findAllButton" class="p-2 text-white" style="text-decoration: none;" href="/findSomeUsers" value="Поиск нескольких клиентов">Поиск нескольких клиентов</a>-->
+            <a id="findUser" class="p-2 text-white" style="text-decoration: none;" href="/findUser" value="Поисковик">Поисковик</a>
 <!--            <a id="sortirovka" class="p-2 text-white" style="text-decoration: none;" href="/sortirovka" value="Сортировка">Сортировка</a>-->
         </nav>
 
-        <div sec:authorize="isAnonymous()" style = "position: relative; left: 65%; transform: translate(-65%, 0);">
+        <div sec:authorize="isAnonymous()" style = "position: relative; left: 60%; transform: translate(-60%, 0);">
             <a id="login" type="submit" class="btn btn-outline-primary" value="Войти" href="/login"> Войти </a>
         </div>
-        <div  sec:authorize="isAnonymous()" style = "position: relative; left: 50%; transform: translate(-50%, 0);">
+        <div  sec:authorize="isAnonymous()" style = "position: relative; left: 45%; transform: translate(-45%, 0);">
             <a id="registration" type="submit" class="btn btn-outline-secondary" style="color:#EFCDB8;" value="Зарегистрироваться" href="/registration"> Зарегистрироваться </a>
         </div>
-        <div sec:authorize="isAuthenticated()" style="position: relative; left: 65%; transform: translate(-65%, 0);">
+        <div sec:authorize="isAuthenticated()" style="position: relative; left: 60%; transform: translate(-60%, 0);">
             <a type="submit" class="btn btn-outline-danger" value="Выйти" href="/logout"> Выйти </a>
         </div>
-        <div sec:authorize="isAuthenticated()" sec:authentication="name" type="text" style="color:black; background-color: white; position: relative; left: 55%; transform: translate(-55%, 0);" > </div>
+        <div sec:authorize="isAuthenticated()" sec:authentication="name" type="text" style="color:black; background-color: white; position: relative; left: 51%; transform: translate(-51%, 0);" > </div>
 
     </div>
 </div>

@@ -49,5 +49,6 @@ public class Region {
 
     @Getter
     @Setter
-    private String houseNumber, seriesPassport, numberPassport, telephone, mail, er;
+    private String houseNumber, seriesPassport, numberPassport, telephone, mail, er, foundError, pattern, titlePattern;
+
 }
